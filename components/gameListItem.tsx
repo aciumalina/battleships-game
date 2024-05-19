@@ -2,8 +2,6 @@ import React from "react";
 import styled from "styled-components/native";
 import { Text } from "react-native";
 import { FontAwesome } from '@expo/vector-icons';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faBan } from '@fortawesome/free-solid-svg-icons'
 
 const Container = styled.TouchableOpacity<{ color: string }>`
     padding: 8px;

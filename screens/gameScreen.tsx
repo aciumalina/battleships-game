@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Text, View, StyleSheet, TouchableOpacity, Button } from 'react-native';
 import { useRoute } from '@react-navigation/native';
-import { GameContext, useGameContext } from '../hooks/gameContext';
-import { sendMove } from '../service/gameService';
 import { useAuth } from '../hooks/authContext';
 import { Picker } from '@react-native-picker/picker';
 import { sendConfiguration } from '../service/gameService';

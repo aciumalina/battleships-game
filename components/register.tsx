@@ -3,44 +3,71 @@ import styled from "styled-components/native";
 import { Text } from "react-native";
 
 const Container = styled.View`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 50px;
-`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  background-color: #f5f5f5;
+  justify-content: center;
+  align-items: center;
+`;
 
 const Input = styled.TextInput`
-    width: 100%;
-    height: 30px;
-    border: 1px solid;
-    margin-bottom: 10px;
-    padding: 8px;
-`
+  width: 100%;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #fff;
+  font-size: 16px;
+`;
 
 const Button = styled.TouchableOpacity`
-`
+  width: 100%;
+  height: 45px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #007bff;
+`;
 
-export interface ILogin {
-    onSubmit: (email: string, password: string) => void
+const ButtonText = styled.Text`
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+`;
+
+export interface IRegister {
+    onSubmit: (email: string, password: string) => void;
 }
 
-const Register: React.FC<ILogin> = ({ onSubmit }) => {
-
+const Register: React.FC<IRegister> = ({ onSubmit }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = () => onSubmit(email, password)
+    const handleSubmit = () => onSubmit(email, password);
 
     return (
         <Container>
-            <Input keyboardType="email-address" onChangeText={setEmail} />
-            <Input secureTextEntry onChangeText={setPassword} />
+            <Input
+                placeholder="Email"
+                keyboardType="email-address"
+                onChangeText={setEmail}
+            />
+            <Input
+                placeholder="Password"
+                secureTextEntry
+                onChangeText={setPassword}
+            />
             <Button onPress={handleSubmit}>
-                <Text>Submit</Text>
+                <ButtonText>Submit</ButtonText>
             </Button>
         </Container>
-    )
-}
+    );
+};
 
 export default Register;

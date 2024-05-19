@@ -1,5 +1,4 @@
 import { useAuth } from "../hooks/authContext";
-import { CellId } from "../hooks/gameContext";
 
 const baseUrl = 'https://malamute-enabled-yak.ngrok-free.app/game';
 
@@ -80,20 +79,3 @@ export const sendConfiguration = async (token: string, gameId: any, configuratio
 }
 
 
-
-export const sendMove = async (token: string, gameId: number, cell: CellId) => {
-    const result = await fetch(`${baseUrl}/game/move/${gameId}`, {
-        method: 'post',
-        headers: {
-            ...baseHeaders,
-            'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({
-            cell
-        })
-    })
-
-    const data = await result.json();
-
-    return data
-}
